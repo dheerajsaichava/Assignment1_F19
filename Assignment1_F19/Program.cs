@@ -127,8 +127,8 @@ namespace Assignment1_F19
             {
                 try
                 {
-                    // Write yo
-                    int count = 0;
+                    
+                    int c = 0;
                     for (int i = 0; i < J.Length; i++)
                     {
 
@@ -136,14 +136,14 @@ namespace Assignment1_F19
                         {
                             if (J[i] == S[j])
                             {
-                                count = count + 1;
+                                c = c + 1;
                             }
 
                         }
-                        // returning the count of  stones you have whcih are also jewels.
+                       
 
                     }
-                    return count;
+                    return c;
                 }
                 catch
                 {
@@ -158,7 +158,7 @@ namespace Assignment1_F19
                 try
                 {
 
-                    List<int> common = new List<int>();
+                    List<int> Common = new List<int>();
 
                     Array.Sort(a);
                     Array.Sort(b);
@@ -169,48 +169,48 @@ namespace Assignment1_F19
                         {
                             if (a[i] == b[j])
                             {
-                                common.Add(a[i]);
+                                Common.Add(a[i]);
                             }
                         }
                     }
 
-                    HashSet<int> hs = new HashSet<int>();
+                    HashSet<int> h = new HashSet<int>();
 
-                    foreach (int n in common)
+                    foreach (int n in Common)
                     {
-                        hs.Add(n);
+                        h.Add(n);
                     }
 
-                    Dictionary<int, List<int>> map = new Dictionary<int, List<int>>();
+                    Dictionary<int, List<int>> dict = new Dictionary<int, List<int>>();
 
-                    foreach (int y in hs)
+                    foreach (int y in h)
                     {
-                        int m = y;
-                        int sum = 0;
-                        List<int> digits = new List<int>();
-                        if (!hs.Contains(m - 1))
-                            while (hs.Contains(m))
+                        int j = y;
+                        int m = 0;
+                        List<int> dig = new List<int>();
+                        if (!h.Contains(j - 1))
+                            while (h.Contains(j))
                             {
-                                sum = sum + m;
-                                digits.Add(m);
-                                m++;
+                                m = m + j;
+                                dig.Add(j);
+                                j++;
                             }
-                        if (!map.ContainsKey(sum))
+                        if (!dict.ContainsKey(m))
                         {
-                            map.Add(sum, digits);
+                            dict.Add(m, dig);
                         }
                     }
 
-                    int max_sum = map.Keys.Max();
-                    List<int> final_list = map[max_sum];
-                    return final_list.ToArray();
+                    int max = dict.Keys.Max();
+                    List<int> result = dict[max];
+                    return result.ToArray();
                 }
                 catch
                 {
                     Console.WriteLine("Exception occured while computing getLargestCommonSubArray()");
                 }
 
-                return null; // return the actual array
+                return null; // 
             }
 
             public static void solvePuzzle()
