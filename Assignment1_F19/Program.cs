@@ -47,21 +47,21 @@ namespace Assignment1_F19
                     int i = int.Parse(Console.ReadLine());
                     Console.Write("Enter the next number:");
                     int j = int.Parse(Console.ReadLine());
-                    for (int num = i; num <= j; num++)
+                    for (int myint = i; myint <= j; myint++)
                     {
-                        int selfdiv = 1;
-                        for (int temp = num; temp > 0; temp /= 10)
+                        int SD = 1;
+                        for (int x = myint; x > 0; x /= 10)
                         {
-                            int dig = temp % 10;
-                            if (dig == 0 || num % dig != 0)
+                            int y = x % 10;
+                            if (y == 0 || myint % y != 0)
                             {
-                                selfdiv = 0;
+                                SD = 0;
                                 break;
                             }
                         }
-                        if (selfdiv == 1)
+                        if (SD == 1)
                         {
-                            Console.Write("{0},", num);
+                            Console.Write("{0},", myint);
                         }
                     }
                 }
@@ -75,21 +75,19 @@ namespace Assignment1_F19
             {
                 try
                 {
-                    int print_cnt = 0;
-                    int start_cnt = 1;
-                    do
+                    var series = new List<int>();
+                    for (int a = 1; a <= n; a++)
                     {
-                        for (int i = 0; i < start_cnt; i++)
+                        for (int b = 0; b < a; b++)
                         {
-                            Console.Write("{0},", start_cnt);
-                            print_cnt += 1;
-                            if (print_cnt == i)
-                            {
-                                break;
-                            }
+                           
+                            series.Add(a);
                         }
-                        start_cnt += 1;
-                    } while (print_cnt < x);
+                    }
+                    for (int i = 0; i < n; i++)
+                    {
+                        Console.Write("{0},", series[i]);
+                    }
                 }
                 catch
                 {
@@ -111,7 +109,7 @@ namespace Assignment1_F19
                         }
                         for (int z = 1; z < 2 * x; z++)
                         {
-                            Console.Write("* ");
+                            Console.Write("*");
                         }
                         Console.WriteLine();
                     }
@@ -127,7 +125,6 @@ namespace Assignment1_F19
             {
                 try
                 {
-                    
                     int c = 0;
                     for (int i = 0; i < J.Length; i++)
                     {
