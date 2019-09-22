@@ -49,17 +49,17 @@ namespace Assignment1_F19
                     int j = int.Parse(Console.ReadLine());
                     for (int num = i; num <= j; num++)
                     {
-                        int selfDividing = 1;
+                        int selfdiv = 1;
                         for (int temp = num; temp > 0; temp /= 10)
                         {
                             int dig = temp % 10;
                             if (dig == 0 || num % dig != 0)
                             {
-                                selfDividing = 0;
+                                selfdiv = 0;
                                 break;
                             }
                         }
-                        if (selfDividing == 1)
+                        if (selfdiv == 1)
                         {
                             Console.Write("{0},", num);
                         }
@@ -71,25 +71,25 @@ namespace Assignment1_F19
                 }
             }
 
-            public static void printSeries(int n)
+            public static void printSeries(int x)
             {
                 try
                 {
-                    int print_count = 0;
-                    int start_count = 1;
+                    int print_cnt = 0;
+                    int start_cnt = 1;
                     do
                     {
-                        for (int i = 0; i < start_count; i++)
+                        for (int i = 0; i < start_cnt; i++)
                         {
-                            Console.Write("{0},", start_count);
-                            print_count += 1;
-                            if (print_count == n)
+                            Console.Write("{0},", start_cnt);
+                            print_cnt += 1;
+                            if (print_cnt == i)
                             {
                                 break;
                             }
                         }
-                        start_count += 1;
-                    } while (print_count < n);
+                        start_cnt += 1;
+                    } while (print_cnt < x);
                 }
                 catch
                 {
